@@ -117,7 +117,7 @@ async function openrouterChat(messages: ChatMessage[]): Promise<AIResponse> {
   const key = process.env.OPENROUTER_API_KEY;
   if (!key) throw new Error('No OpenRouter key');
 
-  const model = process.env.OPENROUTER_MODEL || 'qwen/qwen-2.5-72b-instruct'; // Fast + cheap
+  const model = process.env.OPENROUTER_MODEL || 'openrouter/free'; // Fast + cheap
 
   const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
     method: 'POST',
