@@ -1,0 +1,33 @@
+{
+  "appId": "ai.ceptra.app",
+  "appName": "Ceptra AI",
+  "webDir": "out",
+  "server": {
+    "androidScheme": "https",
+    "url": "https://ceptra-ai.vercel.app",
+    "cleartext": true
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 1500,
+      "backgroundColor": "#07070d",
+      "showSpinner": false
+    },
+    "StatusBar": {
+      "style": "DARK",
+      "backgroundColor": "#07070d"
+    },
+    "Keyboard": {
+      "resize": "body",
+      "resizeOnFullScreen": true
+    }
+  },
+  "ios": {
+    "contentInset": "automatic",
+    "preferredContentMode": "mobile",
+    "scheme": "Ceptra AI"
+  },
+  "android": {
+    "allowMixedContent": true
+  }
+}

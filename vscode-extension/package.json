@@ -1,0 +1,76 @@
+{
+  "name": "ceptra-ai",
+  "displayName": "Ceptra AI — Code, Test, Generate",
+  "description": "Self-hosted AI assistant: write code, run tests, generate docs/images/presentations right from VS Code",
+  "version": "0.1.0",
+  "publisher": "ceptra-ai",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Machine Learning", "Programming Languages", "Testing"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [{
+        "id": "ceptra",
+        "title": "Ceptra AI",
+        "icon": "$(hubot)"
+      }]
+    },
+    "views": {
+      "ceptra": [{
+        "type": "webview",
+        "id": "ceptra.chat",
+        "name": "AI Assistant"
+      }]
+    },
+    "commands": [
+      { "command": "ceptra.ask", "title": "Ceptra: Ask AI" },
+      { "command": "ceptra.explain", "title": "Ceptra: Explain Code" },
+      { "command": "ceptra.refactor", "title": "Ceptra: Refactor Code" },
+      { "command": "ceptra.test", "title": "Ceptra: Generate Tests" },
+      { "command": "ceptra.fix", "title": "Ceptra: Fix Error" },
+      { "command": "ceptra.docs", "title": "Ceptra: Generate Documentation" },
+      { "command": "ceptra.run", "title": "Ceptra: Run Code" },
+      { "command": "ceptra.image", "title": "Ceptra: Generate Image" },
+      { "command": "ceptra.pptx", "title": "Ceptra: Create Presentation" },
+      { "command": "ceptra.xlsx", "title": "Ceptra: Create Spreadsheet" },
+      { "command": "ceptra.signout", "title": "Ceptra: Sign Out" }
+    ],
+    "menus": {
+      "editor/context": [
+        { "command": "ceptra.explain", "group": "ceptra@1", "when": "editorHasSelection" },
+        { "command": "ceptra.refactor", "group": "ceptra@2", "when": "editorHasSelection" },
+        { "command": "ceptra.test", "group": "ceptra@3", "when": "editorHasSelection" },
+        { "command": "ceptra.fix", "group": "ceptra@4" }
+      ]
+    },
+    "keybindings": [
+      { "command": "ceptra.ask", "key": "ctrl+shift+a", "mac": "cmd+shift+a" },
+      { "command": "ceptra.run", "key": "ctrl+shift+r", "mac": "cmd+shift+r" }
+    ],
+    "configuration": {
+      "title": "Ceptra AI",
+      "properties": {
+        "ceptra.serverUrl": {
+          "type": "string",
+          "default": "https://ceptra-ai.vercel.app",
+          "description": "Ceptra AI server URL (your deployed app or http://localhost:3000)"
+        },
+        "ceptra.model": {
+          "type": "string",
+          "default": "openrouter/free",
+          "description": "Default AI model"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.5.0"
+  }
+}

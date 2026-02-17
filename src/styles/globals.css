@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg:#07070d;--bg2:#0e0e18;--bg3:#151522;--bg4:#1c1c2e;--bg5:#24243a;
+  --text:#e2e2f0;--text2:#9090a8;--text3:#5a5a72;
+  --accent:#6366f1;--accent2:#818cf8;--glow:rgba(99,102,241,0.12);
+  --green:#34d399;--red:#f87171;--amber:#fbbf24;--cyan:#22d3ee;--pink:#f472b6;--purple:#a78bfa;
+  --border:#1e1e30;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body,#__next{height:100%;background:var(--bg);color:var(--text);font-family:'SF Pro Display',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+
+/* Markdown */
+.mc p{margin-bottom:.6rem;line-height:1.7}.mc p:last-child{margin-bottom:0}
+.mc pre{background:#08080f;border:1px solid var(--border);border-radius:8px;padding:14px;overflow-x:auto;margin:.6rem 0;font-size:12.5px;line-height:1.6;position:relative}
+.mc code{font-family:'SF Mono','JetBrains Mono','Fira Code',monospace;font-size:.85em}
+.mc :not(pre)>code{background:var(--bg3);padding:.1rem .35rem;border-radius:4px}
+.mc ul,ol{padding-left:1.4rem;margin:.4rem 0}.mc li{margin:.2rem 0;line-height:1.6}
+.mc h1,.mc h2,.mc h3{margin:.8rem 0 .4rem;font-weight:600;color:#fff}
+.mc h1{font-size:1.2rem}.mc h2{font-size:1.05rem}.mc h3{font-size:.95rem}
+.mc strong{color:#fff}.mc a{color:var(--accent);text-decoration:underline}
+.mc blockquote{border-left:3px solid var(--accent);padding-left:.8rem;margin:.5rem 0;color:var(--text2)}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+.fade-in{animation:fadeUp .25s ease-out}
+.dot-pulse span{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--accent);animation:pulse 1.2s infinite;margin:0 2px}
+.dot-pulse span:nth-child(2){animation-delay:.2s}
+.dot-pulse span:nth-child(3){animation-delay:.4s}
